@@ -1,0 +1,35 @@
+
+Config { font = "xft:Ubuntu:pixelsize=13"
+, additionalFonts = ["xft:FontAwesome:pixelsize=13:antialias=true:hinting=true"]
+, bgColor = "#130d13"
+, fgColor = xmobar_fg
+, position = Static { xpos = 0, ypos = 0, width = 1920, height = 25 }
+, lowerOnStart = True
+, iconRoot = "/home/chagu/.xmonad/xpm/" -- default: "."
+, commands = [
+Run Weather "EGPF" ["-t","<station>: <tempC>C","-L","18","-H","25","--normal","green","--high","red","--low","lightblue"] 36000
+
+,   Run Network "eth0" ["-L","0","-H","32","--normal","green","--high","red"] 10
+
+,   Run Network "eth1" ["-L","0","-H","32","--normal","green","--high","red"] 10
+
+,   Run Cpu ["-L","3","-H","50","--normal","green","--high","red"] 10
+
+,   Run Memory ["-t","Mem: <usedratio>%"] 10
+
+,   Run Swap [] 10
+
+,   Run Com "whoami" [] "" 0
+
+,   Run Com "sb-disk" [] "disk" 600
+
+,   Run Com "uname" ["-s","-r"] "" 36000
+
+,   Run Date "| %d %b %Y  (%H:%M) |" "date" 50
+
+
+]
+, sepChar = "%"
+, alignSep = "}{"
+, template = "   Current Machine : %whoami%-arch  } %date% {        %cpu%    |    %memory%    |    I love you so !   "
+}

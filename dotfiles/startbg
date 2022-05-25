@@ -1,0 +1,8 @@
+#!/bin/sh
+
+wall=$(find $HOME/media/pics/Wallpapers -type f | shuf -n 1)
+#wall=$HOME/media/pics/Wallpapers/b.png
+xwallpaper --zoom $wall
+wal -i $wall >/dev/null
+(cd $HOME/.local/src/dmenu && sudo make clean install>/dev/null)
+update-xmobar-colors
